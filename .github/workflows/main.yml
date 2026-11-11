@@ -1,4 +1,4 @@
-name: Build OptiHud
+name: Build OptiHud 2
 
 on:
   push:
@@ -27,7 +27,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: 9.5.1
+          gradle-version: 9.6.1
+          wrapper: true
 
       - name: Build with Gradle
         run: ./gradlew build
