@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "package": "com.optihud.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ScreenTickMixin",
+    "ScreenMouseClickedMixin",
+    "GuiSetScreenMixin"
+  ],
+  "server": [],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

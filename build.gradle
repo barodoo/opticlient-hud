@@ -1,0 +1,63 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'java'
+    id 'maven-publish'
+}
+
+repositories {
+    // Loom adds the essential maven repositories automatically.
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+dependencies {
+    // Minecraft (resolved automatically by Loom from gradle.properties)
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+    // Fabric Loader
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Fabric API
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+    def version = project.version
+    inputs.property "version", version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": version
+    }
+}
+
+loom {
+    // 26.1+ ships unobfuscated; no mappings block or access widener is needed.
+    // The access widener line is deliberately omitted — Loom 1.17 rejects a named
+    // widener when the game is unobfuscated.
+    runs {
+        client {
+            client()
+            setConfigName('FabricClient')
+            ideConfigGenerated(true)
+            runDir('run')
+        }
+        server {
+            server()
+            setConfigName('FabricServer')
+            ideConfigGenerated(true)
+            runDir('run')
+        }
+    }
+}
+
+jar {
+    from 'LICENSE'
+    rename { "${it}" }
+}

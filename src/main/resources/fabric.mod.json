@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "optihud",
+  "version": "${version}",
+  "name": "OptiHud",
+  "description": "A complete HUD and utility mod inspired by Lunar/Badlion. Menu, tracking modules, and a drag-and-drop HUD editor.",
+  "authors": ["Lunar"],
+  "license": "MIT",
+  "icon": "assets/optihud/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.optihud.LunarHudClient"]
+  },
+  "mixins": {
+    "client": ["optihud.mixins.json"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
