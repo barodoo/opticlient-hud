@@ -1,0 +1,30 @@
+# Gradle
+build/
+.gradle/
+out/
+.gradle/
+
+# IntelliJ
+*.iml
+.idea/
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Visual Studio Code
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local configuration / secrets
+.env
+.env.local
+
+# Dependencies (not needed in git)
+# For Fabric mods, dependencies are resolved from Maven; no node_modules

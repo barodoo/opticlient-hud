@@ -1,4 +1,4 @@
-name: Build OptiHud 2
+name: Build OptiHud
 
 on:
   push:
